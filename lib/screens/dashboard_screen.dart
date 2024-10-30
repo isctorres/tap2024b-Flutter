@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('TAP Ago-Dic 2024'),
+      ),
+      drawer: myDrawer(context),
+    );
+  }
+
+  Widget myDrawer(context){
+    return Drawer(
+      child: ListView(
+        children: [
+          const UserAccountsDrawerHeader(
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage('https://i.pravatar.cc/300'),
+            ),
+            accountName: Text('Rubensin Torres Frias'), 
+            accountEmail: Text('ruben.torres@itcelaya.edu.mx')
+          ),
+          ListTile(
+            onTap: (){},
+            title: Text('Practica 1'),
+            subtitle: Text('Challenge'),
+            leading: Icon(Icons.code),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            onTap: (){
+              Navigator.pop(context);
+              Navigator.pop(context);
+            },
+            title: Text('Salir'),
+            leading: Icon(Icons.exit_to_app),
+            trailing: Icon(Icons.chevron_right),
+          ),
+
+        ],
+      ),
+    );
+  }
+}
