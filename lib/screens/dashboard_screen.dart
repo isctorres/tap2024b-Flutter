@@ -1,3 +1,4 @@
+import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -7,7 +8,9 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TAP Ago-Dic 2024'),
+        title: const Text('TAP Ago-Dic 2024', 
+          style: TextStyle(fontFamily: 'SuperM'),
+        ),
       ),
       drawer: myDrawer(context),
     );
@@ -40,6 +43,12 @@ class DashboardScreen extends StatelessWidget {
             leading: Icon(Icons.exit_to_app),
             trailing: Icon(Icons.chevron_right),
           ),
+          DayNightSwitcher(
+            isDarkModeEnabled: false, 
+            onStateChanged: (isDarkModeEnabled) {
+              
+            },
+          )
 
         ],
       ),
