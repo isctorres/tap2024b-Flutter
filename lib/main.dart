@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tap2024b/screens/dashboard_screen.dart';
+import 'package:tap2024b/screens/popular_screen.dart';
 import 'package:tap2024b/screens/splash_screen.dart';
 import 'package:tap2024b/settings/global_values.dart';
 
@@ -14,12 +15,12 @@ class MyApp extends StatelessWidget {
       valueListenable: GlobalValues.banThemeDark,
       builder: (context,value,_) {
         return MaterialApp(
-          theme: ThemeData.dark(),
+          theme: value ? ThemeData.dark() : ThemeData.light(),
           title: 'Material App',
           routes: {
             "/dash" : (context) => const DashboardScreen()
           },
-          home: const SplashScreen()
+          home: PopularScreen() //const SplashScreen()
         );
       }
     );

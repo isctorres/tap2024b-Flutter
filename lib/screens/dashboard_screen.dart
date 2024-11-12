@@ -1,5 +1,6 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:tap2024b/settings/global_values.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -36,6 +37,15 @@ class DashboardScreen extends StatelessWidget {
           ),
           ListTile(
             onTap: (){
+             
+            },
+            title: Text('Popular Movies'),
+            subtitle: Text('Test api'),
+            leading: Icon(Icons.movie),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            onTap: (){
               Navigator.pop(context);
               Navigator.pop(context);
             },
@@ -44,9 +54,9 @@ class DashboardScreen extends StatelessWidget {
             trailing: Icon(Icons.chevron_right),
           ),
           DayNightSwitcher(
-            isDarkModeEnabled: false, 
+            isDarkModeEnabled: GlobalValues.banThemeDark.value, 
             onStateChanged: (isDarkModeEnabled) {
-              
+              GlobalValues.banThemeDark.value = isDarkModeEnabled;
             },
           )
 
