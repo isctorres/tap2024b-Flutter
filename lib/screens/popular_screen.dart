@@ -14,7 +14,32 @@ class _PopularScreenState extends State<PopularScreen> {
 
   @override
   Widget build(BuildContext context) {
-    apiPopular.getAllPopular();
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('API Popular Movies'),
+      ),
+      body: FutureBuilder(
+        future: apiPopular.getAllPopular(), 
+        builder: (context, snapshot) {
+          if(snapshot.hasData){
+            return GridView.builder(
+              itemCount: snapshot.data!.length ,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ), 
+              itemBuilder: (context, index) {
+                return Text(snapshot.data![index].title);
+              },
+            );
+          }else{
+            if(snapshot.hasError){
+              return Center(child: Text(snapshot.error.toString()),);
+            }else{
+              return const Center(child: CircularProgressIndicator());
+            }
+          }
+        },
+      ),
+    );
   }
 }

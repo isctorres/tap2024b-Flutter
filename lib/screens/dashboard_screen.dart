@@ -36,9 +36,7 @@ class DashboardScreen extends StatelessWidget {
             trailing: Icon(Icons.chevron_right),
           ),
           ListTile(
-            onTap: (){
-             
-            },
+            onTap: ()=>Navigator.pushNamed(context,"/movies"),
             title: Text('Popular Movies'),
             subtitle: Text('Test api'),
             leading: Icon(Icons.movie),

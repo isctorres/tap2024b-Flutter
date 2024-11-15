@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
           theme: value ? ThemeData.dark() : ThemeData.light(),
           title: 'Material App',
           routes: {
-            "/dash" : (context) => const DashboardScreen()
+            "/dash" : (context) => const DashboardScreen(),
+            "/movies" : (context) => const PopularScreen()
           },
           home: PopularScreen() //const SplashScreen()
         );
